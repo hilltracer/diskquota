@@ -68,7 +68,7 @@ static volatile sig_atomic_t got_sighup  = false;
 static volatile sig_atomic_t got_sigterm = false;
 static volatile sig_atomic_t got_sigusr1 = false;
 static volatile sig_atomic_t got_sigusr2 = false;
-
+qwe;
 /* GUC variables */
 int  diskquota_naptime                         = 0;
 int  diskquota_max_active_tables               = 0;
