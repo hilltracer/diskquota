@@ -157,8 +157,7 @@ static bool check_alter_extension(void);
  *		Compute space needed for diskquota launcher related shared memory
  */
 Size
-diskquota_launcher_shmem_size(void)
-{
+diskquota_launcher_shmem_size(void) {
 	Size size;
 
 	size = MAXALIGN(sizeof(DiskquotaLauncherShmemStruct));
@@ -231,16 +230,14 @@ check_alter_extension(void)
 	 * If the current version is the final version, which is altered,
 	 * we need to throw an error to the user.
 	 */
-	if (ret)
-	{
+	if (ret)	{
 		/*
 		 * If version is set in alter extension statement, then compare the current version
 		 * with the version in this statement. Otherwise, compare the current version with
 		 * the default version of diskquota.
 		 */
 		pos = strstr(pos, "to");
-		if (pos)
-			ret = strstr(pos, DISKQUOTA_VERSION) != 0;
+		if (pos) 			ret = strstr(pos, DISKQUOTA_VERSION) != 0;
 		else
 			ret = is_altering_extension_to_default_version(DISKQUOTA_VERSION);
 	}
@@ -266,9 +263,8 @@ _PG_init(void)
 		 * To support the continuous upgrade/downgrade, we should skip the library
 		 * check in _PG_init() during upgrade/downgrade.
 		 */
-		if (IsNormalProcessingMode() && check_alter_extension())
-		{
-			ereport(LOG, (errmsg("[diskquota] altering diskquota version to " DISKQUOTA_VERSION ".")));
+		if (IsNormalProcessingMode() && check_alter_extension())    
+		{ 			ereport(LOG, (errmsg("[diskquota] altering diskquota version to " DISKQUOTA_VERSION ".")));
 			return;
 		}
 		ereport(ERROR, (errmsg("[diskquota] booting " DISKQUOTA_VERSION ", but " DISKQUOTA_BINARY_NAME
