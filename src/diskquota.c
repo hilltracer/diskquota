@@ -1908,7 +1908,7 @@ get_db_name(Oid dbid)
 	MemoryContext old_ctx;
 	if (dbid == InvalidOid)
 	{
-		elog(WARNING, "database oid  is invalid");
+		elog(WARNING, "database oid is invalid");
 		return NULL;
 	}
 
