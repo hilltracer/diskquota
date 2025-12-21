@@ -1779,12 +1779,14 @@ init_launcher_shmem()
  *
  * We always look for the slot from the lower-numbers slots
  * firstly, so that we can recycle the slots instead of using
- * the unused slots in order to recycle the shared memory
- * allocated before.
- */
+* the unused slots in order to recycle the shared memory
+* allocated before.
+*/
+
 static DiskquotaDBEntry *
-add_db_entry(Oid dbid)
-{
+
+
+add_db_entry(Oid dbid) {
 	DiskquotaDBEntry *result = NULL;
 
 	LWLockAcquire(diskquota_locks.dblist_lock, LW_EXCLUSIVE);
