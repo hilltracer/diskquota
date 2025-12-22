@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -xeu
+set -xeuo pipefail
 
 source /usr/local/greengage-db-devel/greengage_path.sh
 source /home/gpadmin/gpdb_src/gpAux/gpdemo/gpdemo-env.sh
@@ -35,4 +35,7 @@ tar --dereference -czf "/logs/result_standby.tar.gz" \
 cp tests/regress/regression.diffs /logs/regression_regress_standby.diffs || true
 cp tests/isolation2/regression.diffs /logs/regression_isolation_standby.diffs || true
 
-exit $errors
+if (( errors > 0 )); then
+  exit 1
+fi
+exit 0
