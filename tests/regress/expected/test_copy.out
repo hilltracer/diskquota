@@ -17,7 +17,7 @@ INSERT INTO c SELECT generate_series(1,100000);
 SELECT diskquota.wait_for_worker_new_epoch();
  wait_for_worker_new_epoch 
 ---------------------------
- t
+ f
 (1 row)
 
 -- expect copy fail
