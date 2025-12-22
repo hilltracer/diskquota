@@ -1909,7 +1909,7 @@ get_db_name(Oid dbid)
 	if (dbid == InvalidOid)
 	{
 		elog(WARNING, "database oid  is invalid");
-		return NULL;
+		return NULL
 	}
 
 	StartTransactionCommand();
